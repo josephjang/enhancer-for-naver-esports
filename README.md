@@ -65,6 +65,8 @@ npm run lint
 npm test            # 단위 테스트 + 확장 e2e 테스트 (Chromium과 Edge)
 npm run test:live   # 실제 game.naver.com 페이지 대상 테스트 (Edge, 네트워크 필요)
 npm run icons       # icons/icon.svg 수정 후 PNG 아이콘 다시 생성
+npm run package     # 스토어 업로드용 zip을 dist/에 생성
+npm run store-images  # 스토어 스크린샷과 프로모션 타일을 store/images/에 다시 생성
 ```
 
 - **unit**: 콘텐츠 스크립트 모듈을 일반 페이지에 넣어 `FillController`, 버튼, 문구 조회를 검증합니다. 두 언어의 메시지 파일이 같은 메시지를 모두 갖췄는지도 확인합니다.
@@ -72,6 +74,10 @@ npm run icons       # icons/icon.svg 수정 후 PNG 아이콘 다시 생성
 - **live**: 실제 영상 페이지에서 플레이어가 창 전체를 채우는지 확인합니다. 사이트 구조가 바뀌었는지 점검할 때 실행합니다.
 
 Playwright가 함께 설치하는 Chromium은 Chrome, 웨일 등이 공통으로 쓰는 오픈 소스 기반입니다. Google Chrome 정식 버전은 테스트 도구가 쓰는 명령줄 방식(`--load-extension`)으로 확장을 로드하지 못하게 바뀌어서, Chrome 대신 이 Chromium으로 검증합니다.
+
+## 스토어 배포
+
+Chrome 웹 스토어에 올리는 방법, 붙여 넣을 설명 문구, 개인정보 탭 답변, 스크린샷은 [`store/README.md`](store/README.md)에 정리되어 있습니다.
 
 ## 제약
 

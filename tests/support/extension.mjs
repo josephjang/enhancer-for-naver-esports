@@ -8,19 +8,22 @@ import { ROOT_DIR } from './paths.mjs';
  * bundled "chromium", or an installed one such as "msedge".
  * `browserLocale` sets the browser's UI language, which decides the
  * extension's language (_locales/); tests override it per describe block.
+ * `extensionDir` is the unpacked extension to load: the repository by
+ * default, or e.g. the contents of the store zip.
  */
 export const test = base.extend({
   browserChannel: ['chromium', { option: true }],
   browserLocale: ['ko-KR', { option: true }],
+  extensionDir: [ROOT_DIR, { option: true }],
 
-  context: async ({ browserChannel, browserLocale }, use) => {
+  context: async ({ browserChannel, browserLocale, extensionDir }, use) => {
     const context = await chromium.launchPersistentContext('', {
       channel: browserChannel,
       locale: browserLocale,
       viewport: { width: 1280, height: 720 },
       args: [
-        `--disable-extensions-except=${ROOT_DIR}`,
-        `--load-extension=${ROOT_DIR}`,
+        `--disable-extensions-except=${extensionDir}`,
+        `--load-extension=${extensionDir}`,
         `--lang=${browserLocale}`,
       ],
     });

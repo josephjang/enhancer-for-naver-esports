@@ -49,5 +49,15 @@ export default [
         EnsI18n: 'readonly',
       },
     },
+    rules: {
+      // Playwright fixtures are declared by destructuring the first
+      // parameter, so a test that uses none must still write `{}`.
+      'no-empty-pattern': ['error', { allowObjectPatternsAsParameters: true }],
+    },
+  },
+  {
+    // Callbacks passed to page.evaluate() and friends run in the page.
+    files: ['scripts/render-store-images.mjs'],
+    languageOptions: { globals: { ...globals.browser } },
   },
 ];

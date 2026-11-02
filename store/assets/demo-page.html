@@ -1,0 +1,109 @@
+<!doctype html>
+<!--
+  Fictional esports video page used only to take the store screenshots
+  (scripts/render-store-images.mjs). It is served on the game.naver.com
+  origin so the extension runs on it, and reuses the PZP player class names
+  the extension's selectors rely on. The "video" is a drawn poster: no real
+  broadcast footage, team or brand appears in the store images.
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>예시 e스포츠 영상 페이지</title>
+<style>
+  :root { --bg: #f4f5f7; --ink: #1b1d22; --muted: #6b7280; --line: #e3e5ea; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; }
+  header { position: fixed; inset: 0 0 auto; height: 52px; z-index: 3001; background: #15171c; color: #fff; display: flex; align-items: center; gap: 28px; padding: 0 32px; }
+  header .logo { font-weight: 800; letter-spacing: 0.08em; }
+  header nav { display: flex; gap: 22px; font-size: 14px; color: #c9ccd3; }
+  header nav .current { color: #fff; font-weight: 700; }
+  main { display: flex; gap: 24px; padding: 72px 32px 0; }
+  .player-column { flex: 0 0 816px; }
+  #pcVODPlayerID { position: relative; width: 816px; height: 459px; border-radius: 10px; overflow: hidden; }
+  .pzp { position: relative; height: 100%; background: #000; }
+  .pzp-pc__video, .pzp-pc__video video { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .pzp-pc__bottom { position: absolute; inset: auto 0 0; padding: 0 12px 6px; background: linear-gradient(transparent, rgba(0,0,0,0.65)); color: #fff; }
+  .progress { height: 4px; margin: 0 6px 6px; background: rgba(255,255,255,0.3); border-radius: 2px; }
+  .progress > div { width: 34%; height: 100%; background: #fff; border-radius: 2px; }
+  .pzp-pc__bottom-buttons { display: flex; align-items: center; justify-content: space-between; }
+  .pzp-pc__bottom-buttons-left, .pzp-pc__bottom-buttons-right { display: flex; align-items: center; gap: 4px; }
+  .time { font-size: 13px; margin-left: 6px; }
+  .pzp-button { position: relative; width: 36px; height: 36px; padding: 0; border: 0; background: none; color: #fff; cursor: pointer; }
+  .pzp-button svg { display: block; width: 36px; height: 36px; }
+  .pzp-button__tooltip { position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%); white-space: nowrap; padding: 6px 10px; border-radius: 6px; background: rgba(20, 20, 24, 0.9); font-size: 13px; visibility: hidden; }
+  .pzp-button:hover .pzp-button__tooltip { visibility: visible; }
+  .pzp-button:hover { background: rgba(255,255,255,0.14); border-radius: 50%; }
+  h1 { font-size: 22px; margin: 18px 0 6px; }
+  .meta { color: var(--muted); font-size: 14px; }
+  aside { flex: 1; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
+  aside h2 { font-size: 17px; margin: 0 0 14px; }
+  .card { display: flex; gap: 12px; margin-bottom: 14px; }
+  .thumb { flex: 0 0 132px; height: 74px; border-radius: 6px; position: relative; }
+  .thumb span { position: absolute; right: 6px; bottom: 6px; padding: 1px 5px; border-radius: 4px; background: rgba(0,0,0,0.7); color: #fff; font-size: 11px; }
+  .card p { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.35; }
+  .card small { color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+  <header>
+    <span class="logo">ESPORTS</span>
+    <nav><span>홈</span><span>일정</span><span class="current">영상</span><span>순위</span></nav>
+  </header>
+  <main>
+    <div class="player-column">
+      <div id="pcVODPlayerID">
+        <div class="pzp pzp-pc">
+          <div class="pzp-pc__video"><video muted playsinline></video></div>
+          <div class="pzp-pc__bottom">
+            <div class="progress"><div></div></div>
+            <div class="pzp-pc__bottom-buttons">
+              <div class="pzp-pc__bottom-buttons-left">
+                <button class="pzp-button" aria-label="재생"><svg viewBox="0 0 36 36"><path d="M13 10v16l13-8z" fill="currentColor"/></svg></button>
+                <button class="pzp-button" aria-label="음소거"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 15h4l5-4v14l-5-4h-4z" fill="currentColor"/><path d="M22 14a6 6 0 0 1 0 8M25 11a10 10 0 0 1 0 14"/></svg></button>
+                <span class="time">22:17 / 1:05:48</span>
+              </div>
+              <div class="pzp-pc__bottom-buttons-right">
+                <button class="pzp-button" aria-label="설정"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3.5"/><path d="M18 9v3M18 24v3M9 18h3M24 18h3M11.6 11.6l2.1 2.1M22.3 22.3l2.1 2.1M11.6 24.4l2.1-2.1M22.3 13.7l2.1-2.1"/></svg></button>
+                <button class="pzp-button pzp-pc__fullscreen-button" aria-label="전체 화면"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 15v-5h5M21 10h5v5M26 21v5h-5M15 26h-5v-5"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h1>결승 1경기 다시보기 | 2026 예시 리그</h1>
+      <div class="meta">조회수 23,705, 2026.11.01</div>
+    </div>
+    <aside>
+      <h2>예시 리그 결승</h2>
+      <div class="card"><div class="thumb" style="background:linear-gradient(135deg,#1d4ed8,#7c3aed)"><span>1:05:48</span></div><div><p>결승 1경기 다시보기</p><small>다시보기</small></div></div>
+      <div class="card"><div class="thumb" style="background:linear-gradient(135deg,#0f766e,#1d4ed8)"><span>1:13:40</span></div><div><p>결승 2경기 다시보기</p><small>다시보기</small></div></div>
+      <div class="card"><div class="thumb" style="background:linear-gradient(135deg,#b91c1c,#7c3aed)"><span>14:32</span></div><div><p>결승 하이라이트</p><small>하이라이트</small></div></div>
+      <div class="card"><div class="thumb" style="background:linear-gradient(135deg,#a16207,#b91c1c)"><span>10:48</span></div><div><p>우승 인터뷰</p><small>인터뷰</small></div></div>
+    </aside>
+  </main>
+  <script>
+    // A drawn 16:9 "broadcast" frame: an arena stage with two team banners.
+    const poster = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1028"/><stop offset="1" stop-color="#1d1147"/></linearGradient>
+          <radialGradient id="spot" cx="0.5" cy="0" r="0.8"><stop offset="0" stop-color="#7dd3fc" stop-opacity="0.55"/><stop offset="1" stop-color="#7dd3fc" stop-opacity="0"/></radialGradient>
+          <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#312e81"/><stop offset="1" stop-color="#0b1028"/></linearGradient>
+        </defs>
+        <rect width="1600" height="900" fill="url(#sky)"/>
+        <path d="M300 0 L520 620 L80 620 Z" fill="url(#spot)"/>
+        <path d="M1300 0 L1520 620 L1080 620 Z" fill="url(#spot)"/>
+        <path d="M800 0 L1060 620 L540 620 Z" fill="url(#spot)" opacity="0.8"/>
+        <rect y="620" width="1600" height="280" fill="url(#floor)"/>
+        <rect x="560" y="250" width="480" height="270" rx="16" fill="#0f172a" stroke="#60a5fa" stroke-width="6"/>
+        <text x="800" y="370" font-family="Segoe UI, sans-serif" font-size="72" font-weight="800" fill="#e0f2fe" text-anchor="middle">GAME 1</text>
+        <text x="800" y="450" font-family="Segoe UI, sans-serif" font-size="48" font-weight="700" fill="#93c5fd" text-anchor="middle">BLUE  2 : 1  RED</text>
+        <rect x="120" y="660" width="420" height="120" rx="12" fill="#1d4ed8"/>
+        <text x="330" y="738" font-family="Segoe UI, sans-serif" font-size="54" font-weight="800" fill="#fff" text-anchor="middle">BLUE</text>
+        <rect x="1060" y="660" width="420" height="120" rx="12" fill="#b91c1c"/>
+        <text x="1270" y="738" font-family="Segoe UI, sans-serif" font-size="54" font-weight="800" fill="#fff" text-anchor="middle">RED</text>
+      </svg>`;
+    document.querySelector('video').poster = `data:image/svg+xml,${encodeURIComponent(poster)}`;
+  </script>
+</body>
+</html>

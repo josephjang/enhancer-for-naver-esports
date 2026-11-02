@@ -1,0 +1,18 @@
+Enlarges the video player on NAVER Esports (game.naver.com) to fill the browser window.
+
+Unlike fullscreen (the F key), your tabs and address bar stay where they are: only the player grows to cover the window. It is handy for watching a match while switching between tabs or windows. The video keeps its aspect ratio, and the player's own play, seek, settings and fullscreen controls keep working.
+
+How to use
+- The "Browser fill" button in the player's control bar (left of the fullscreen button)
+- The W key on a video page (works with any keyboard layout, ignored while you type in a text field)
+- The toolbar icon or Alt+Shift+W (change the shortcut in the browser's extension shortcut settings)
+- Esc to turn it off
+
+Once turned on, browser fill stays on in that tab as you move to the next video or reload the page. Turning it off ends that, and other tabs are never affected.
+
+Privacy
+This extension collects no data and sends nothing anywhere. It only changes how game.naver.com pages are displayed in your browser. It does not download videos or block ads.
+
+Open source (MIT license): https://github.com/josephjang/enhancer-for-naver-esports
+
+This extension is not affiliated with, endorsed by or made by NAVER Corp. NAVER is a trademark of NAVER Corp.

@@ -1,9 +1,10 @@
 <!doctype html>
 <!--
-  Stripped-down copy of the game.naver.com video page layout as observed on
-  the live site: a fixed header with z-index 3001, an overflow: hidden page
-  container, and the PZP player (.pzp, with an inline height: 100%) holding
-  the <video> and the control bar. Unlike the live page, one ancestor has a
+  Minimal page written for the tests, modeled on the structure observed on
+  the game.naver.com video page: a fixed header with z-index 3001, an
+  overflow: hidden page container, and the PZP player (.pzp, with an inline
+  height: 100%) holding the <video> and the control bar. It reuses only the
+  player's class names, which the extension's selectors depend on. Unlike the live page, one ancestor has a
   transform, so the tests prove fill mode neutralizes containing blocks.
   No media is loaded: a <video> without a source still has a layout box.
 -->

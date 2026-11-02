@@ -1,8 +1,9 @@
 {
-  "name": "enhanced-naver-sports",
+  "name": "enhancer-for-naver-esports",
   "version": "0.1.0",
   "private": true,
   "description": "Enhancer for NAVER Esports: a Chromium browser extension (Chrome, Edge, Whale, ...) that makes the NAVER Esports video player fill the browser window",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "lint": "eslint .",

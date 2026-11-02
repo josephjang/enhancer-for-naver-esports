@@ -1,0 +1,29 @@
+<!doctype html>
+<!-- The player is mounted after load, like the live single-page app does. -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Late player fixture</title>
+<style>
+  html, body { margin: 0; }
+  #pcVODPlayerID { position: relative; width: 640px; height: 360px; }
+  .pzp { position: relative; }
+  .pzp video { position: absolute; width: 100%; height: 100%; }
+  .pzp-pc__bottom-buttons-right { position: absolute; right: 0; bottom: 0; }
+</style>
+</head>
+<body>
+  <div id="pcVODPlayerID"></div>
+  <script>
+    setTimeout(() => {
+      document.getElementById('pcVODPlayerID').innerHTML = `
+        <div class="pzp pzp-pc" style="height: 100%">
+          <video muted playsinline></video>
+          <div class="pzp-pc__bottom-buttons-right">
+            <button class="pzp-pc__fullscreen-button pzp-button" aria-label="전체 화면"></button>
+          </div>
+        </div>`;
+    }, 300);
+  </script>
+</body>
+</html>

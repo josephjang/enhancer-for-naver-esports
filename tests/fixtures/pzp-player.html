@@ -1,0 +1,58 @@
+<!doctype html>
+<!--
+  Stripped-down copy of the game.naver.com video page layout as observed on
+  the live site: a fixed header with z-index 3001, an overflow: hidden page
+  container, and the PZP player (.pzp, with an inline height: 100%) holding
+  the <video> and the control bar. Unlike the live page, one ancestor has a
+  transform, so the tests prove fill mode neutralizes containing blocks.
+  No media is loaded: a <video> without a source still has a layout box.
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>PZP fixture</title>
+<style>
+  html, body { margin: 0; }
+  header { position: fixed; top: 0; left: 0; right: 0; height: 110px; z-index: 3001; background: #222; }
+  .container { position: relative; overflow: hidden; padding-top: 110px; }
+  .transformed { transform: translateZ(0); }
+  #pcVODPlayerID { position: relative; width: 640px; height: 360px; margin: 24px 160px; }
+  .pzp { position: relative; overflow: hidden; background: #111; }
+  .pzp-pc__video { position: absolute; inset: 0; }
+  .pzp-pc__video video { position: absolute; width: 100%; height: 100%; }
+  .pzp-pc__bottom { position: absolute; left: 0; right: 0; bottom: 0; height: 40px; display: flex; justify-content: flex-end; }
+  .pzp-button { width: 36px; height: 36px; padding: 0; border: 0; background: none; color: #fff; }
+  .tall { height: 3000px; }
+</style>
+</head>
+<body>
+  <header>header</header>
+  <div id="root">
+    <div class="container">
+      <div class="transformed">
+        <div id="pcVODPlayerID">
+          <div class="pzp pzp-pc" style="height: 100%">
+            <div class="pzp-pc__video"><video id="main-video" muted playsinline></video></div>
+            <div class="pzp-pc__bottom">
+              <div class="pzp-pc__bottom-buttons">
+                <div class="pzp-pc__bottom-buttons-right">
+                  <button class="pzp-setting-button pzp-pc__setting-button pzp-button" aria-label="설정"><span class="pzp-button__tooltip pzp-button__tooltip--top">설정</span></button>
+                  <button class="pzp-fullscreen-button pzp-pc__fullscreen-button pzp-button" aria-label="전체 화면"><span class="pzp-button__tooltip pzp-button__tooltip--top">전체 화면 (f)</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input id="search" type="text" placeholder="검색">
+      <div class="tall"></div>
+    </div>
+  </div>
+  <script>
+    // Records clicks reaching the player, as the real player would treat
+    // them as play/pause toggles.
+    window.playerClicks = 0;
+    document.querySelector('.pzp').addEventListener('click', () => { window.playerClicks += 1; });
+  </script>
+</body>
+</html>

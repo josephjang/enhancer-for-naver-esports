@@ -1,0 +1,30 @@
+{
+  "extName": {
+    "message": "Enhancer for NAVER Esports",
+    "description": "Extension name shown in the browser and the add-ons store."
+  },
+  "extShortName": {
+    "message": "Esports Enhancer",
+    "description": "Short extension name for places with little room. It is cut off when longer than the space."
+  },
+  "extDescription": {
+    "message": "Enlarges the NAVER Esports video player to fill the browser window.",
+    "description": "Extension description shown in the browser and the add-ons store."
+  },
+  "actionTitle": {
+    "message": "Toggle browser fill",
+    "description": "Tooltip of the toolbar icon, which turns browser fill on or off."
+  },
+  "commandToggleFill": {
+    "message": "Toggle browser fill for the video",
+    "description": "Keyboard shortcut description on the browser's extension shortcuts page."
+  },
+  "fillButtonEnter": {
+    "message": "Browser fill",
+    "description": "Label and tooltip of the player button that makes the player fill the browser window."
+  },
+  "fillButtonExit": {
+    "message": "Exit browser fill",
+    "description": "Label and tooltip of the player button while the player fills the browser window."
+  }
+}

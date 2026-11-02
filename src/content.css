@@ -1,0 +1,79 @@
+/*
+ * Styles for fill mode. src/fill-mode.js only toggles the data attributes
+ * below; removing them restores the page. `!important` is required to beat
+ * the player's inline styles (e.g. `.pzp { height: 100% }`).
+ */
+
+/* Lock page scrolling behind the filled player. */
+html[data-ens-fill],
+html[data-ens-fill] > body {
+  overflow: hidden !important;
+}
+
+/*
+ * Every ancestor of the filled element. Each property below would otherwise
+ * make the ancestor the containing block of a position: fixed descendant
+ * (so the player would fill the ancestor instead of the viewport) or clip it.
+ * z-index lifts the whole chain above the site's fixed header (z-index 3001).
+ */
+[data-ens-fill-ancestor] {
+  transform: none !important;
+  translate: none !important;
+  rotate: none !important;
+  scale: none !important;
+  perspective: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  contain: none !important;
+  container-type: normal !important;
+  content-visibility: visible !important;
+  will-change: auto !important;
+  clip-path: none !important;
+  mask: none !important;
+  z-index: 2147483647 !important;
+}
+
+[data-ens-fill-target] {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  transform: none !important;
+  z-index: 2147483647 !important;
+  background: #000 !important;
+}
+
+/* Fallback target when no PZP player wraps the video: letterbox, never crop. */
+video[data-ens-fill-target] {
+  object-fit: contain !important;
+}
+
+/* Toggle button injected into the PZP control bar (src/player-button.js). */
+.ens-fill-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.ens-fill-button .ens-fill-button__icon {
+  display: block;
+  width: 36px;
+  height: 36px;
+}
+
+/* Show the icon matching the action the button will perform. */
+.ens-fill-button .ens-fill-button__icon--exit,
+.ens-fill-button[aria-pressed='true'] .ens-fill-button__icon--enter {
+  display: none;
+}
+
+.ens-fill-button[aria-pressed='true'] .ens-fill-button__icon--exit {
+  display: block;
+}

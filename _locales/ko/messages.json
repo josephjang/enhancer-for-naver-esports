@@ -1,0 +1,30 @@
+{
+  "extName": {
+    "message": "Enhancer for NAVER e스포츠",
+    "description": "브라우저와 추가 기능 스토어에 표시되는 확장 이름."
+  },
+  "extShortName": {
+    "message": "e스포츠 Enhancer",
+    "description": "공간이 좁은 곳에 표시되는 짧은 확장 이름. 공간보다 길면 잘려서 표시됩니다."
+  },
+  "extDescription": {
+    "message": "네이버 e스포츠 영상 플레이어를 브라우저 창 크기로 키워 줍니다.",
+    "description": "브라우저와 추가 기능 스토어에 표시되는 확장 설명."
+  },
+  "actionTitle": {
+    "message": "브라우저 채우기 켜기/끄기",
+    "description": "도구 모음 아이콘의 툴팁. 아이콘을 누르면 브라우저 채우기가 켜지거나 꺼집니다."
+  },
+  "commandToggleFill": {
+    "message": "영상 브라우저 채우기 켜기/끄기",
+    "description": "브라우저의 확장 단축키 설정 화면에 표시되는 단축키 설명."
+  },
+  "fillButtonEnter": {
+    "message": "브라우저 채우기",
+    "description": "플레이어를 브라우저 창 크기로 키우는 버튼의 이름과 툴팁."
+  },
+  "fillButtonExit": {
+    "message": "브라우저 채우기 종료",
+    "description": "플레이어가 브라우저 창을 채우고 있을 때 버튼의 이름과 툴팁."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "enhanced-naver-sports",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Enhancer for NAVER Esports: a Chromium browser extension (Chrome, Edge, Whale, ...) that makes the NAVER Esports video player fill the browser window",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "playwright test --project=unit --project=e2e-chromium --project=e2e-edge",
+    "test:unit": "playwright test --project=unit",
+    "test:e2e": "playwright test --project=e2e-chromium --project=e2e-edge",
+    "test:live": "playwright test --project=live",
+    "icons": "node scripts/render-icons.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.64.1",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0"
+  }
+}

@@ -1,0 +1,3 @@
+# Keep LF everywhere so diffs and lint behave the same on every OS.
+* text=auto eol=lf
+*.png binary
